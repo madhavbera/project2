@@ -1,0 +1,8 @@
+services:
+    app:
+        image: test
+        ports:
+            - "9090:8080"
+
+    mysql:
+        image: mysql:8.0

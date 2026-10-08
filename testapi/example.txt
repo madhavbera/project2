@@ -1,0 +1,3 @@
+Hello Madhav!
+This is a Java file handling example.
+Learning file read and write.
