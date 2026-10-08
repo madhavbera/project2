@@ -29,7 +29,7 @@ public class Placecont {
 	@GetMapping("/hellow")
 	public String gethellow()
 	{
-		return "Hellow user how can i help you ";
+		return "Hellow user how can i help you . ";
 	}
 	@PostMapping("/createuser/{id}")
 	public String createuser(@RequestBody Userdto dt,@PathVariable int id)
