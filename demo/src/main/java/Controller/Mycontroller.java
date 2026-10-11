@@ -24,7 +24,7 @@ public class Mycontroller {
 	@GetMapping("/hellow")
 	public String getmess()
 	{
-		return "hellow";
+		return "hellow . what can i help you";
 	}
 	@GetMapping("/hellow world")
 	public String getservice()
