@@ -38,7 +38,7 @@ public class Cont {
 	@GetMapping("/welcome")
 	public ResponseEntity<String> getwelcome()
 	{
-		return new ResponseEntity<>("WELCOME TO MY APPLICATION",HttpStatus.OK);
+		return new ResponseEntity<>("WELCOME TO MY INTRESTING APPLICATION ",HttpStatus.OK);
 	}
 	@GetMapping("/Hellow")
 	public String gethello()
