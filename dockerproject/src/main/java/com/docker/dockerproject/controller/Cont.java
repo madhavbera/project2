@@ -53,7 +53,7 @@ public class Cont {
 	@GetMapping("/getmessage")
 	public String getmessage()
 	{
-		String url ="http://localhost:8989/dockerpalce/hellow";
+		String url ="http://localhost:8989/user/hellow";
 		String message=resttemp.getForObject(url, String.class);
 		return message;
 	}

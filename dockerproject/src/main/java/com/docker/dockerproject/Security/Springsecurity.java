@@ -30,15 +30,15 @@ import com.docker.dockerproject.repository.Userinforepo;
 public class Springsecurity {
 	
 	
-//	@Bean
-//	public UserDetailsService userservice()
-//	{
-//		UserDetails userone=org.springframework.security.core.userdetails.User.withUsername("user")
-//				.password(encoder().encode("user1")).roles("USER").build();
-//		UserDetails usertwo=org.springframework.security.core.userdetails.User.withUsername("admin")
-//				.password(encoder().encode("pass2")).roles("ADMIN").build();
-//		return new InMemoryUserDetailsManager(userone,usertwo);
-//	}
+	@Bean
+	public UserDetailsService userservice()
+	{
+		UserDetails userone=org.springframework.security.core.userdetails.User.withUsername("user")
+				.password(encoder().encode("user1")).roles("USER").build();
+		UserDetails usertwo=org.springframework.security.core.userdetails.User.withUsername("admin")
+				.password(encoder().encode("pass2")).roles("ADMIN").build();
+		return new InMemoryUserDetailsManager(userone,usertwo);
+	}
 
 	private final UserDetailsService userdaDetailsService;
 	public Springsecurity(UserDetailsService user)
@@ -54,7 +54,7 @@ public class Springsecurity {
 	public SecurityFilterChain securityfilerchain(HttpSecurity http)
 	{
 		http.csrf(csrfcustomizer->csrfcustomizer.disable());
-		http.authorizeHttpRequests(request->request.requestMatchers("/docker/welcome","/user-info/Data/{id}","/docker/GETData/*").permitAll()
+		http.authorizeHttpRequests(request->request.requestMatchers("/docker/welcome","/user-info/Data/{id}","/docker/GETData/*","/docker/getmessage").permitAll()
 				.anyRequest().authenticated());
 		http.httpBasic(Customizer.withDefaults());
 		http.sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
@@ -78,14 +78,14 @@ public class Springsecurity {
 //                    .build();
 //        };
 //    }
-	@Bean
-	public AuthenticationProvider authenticationProvider()
-	{
-		DaoAuthenticationProvider daoAuthenticationProvider=new DaoAuthenticationProvider(userdaDetailsService);
-		
-		daoAuthenticationProvider.setPasswordEncoder(encoder());
-		return daoAuthenticationProvider;
-		
-	}
+//	@Bean
+//	public AuthenticationProvider authenticationProvider()
+//	{
+//		DaoAuthenticationProvider daoAuthenticationProvider=new DaoAuthenticationProvider(userdaDetailsService);
+//		
+//		daoAuthenticationProvider.setPasswordEncoder(encoder());
+//		return daoAuthenticationProvider;
+//		
+//	}
 
 }
